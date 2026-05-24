@@ -30,7 +30,7 @@ function Register() {
 
             const response = await axios.post(
 
-                "http://127.0.0.1:5000/api/auth/register",
+                "https://fitzone-pro.onrender.com/api/auth/register",
 
                 formData
 
