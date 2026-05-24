@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react"
-
 import axios from "axios"
 
 function Admin() {
 
     const [users, setUsers] = useState([])
-
     const [messages, setMessages] = useState([])
+
+    // Backend URL
+    const API = "https://fitzone-pro.onrender.com"
 
     // Fetch Data
     useEffect(() => {
 
         fetchUsers()
-
         fetchMessages()
 
     }, [])
@@ -23,9 +23,7 @@ function Admin() {
         try {
 
             const res = await axios.get(
-
-                "http://localhost:5000/api/admin/users"
-
+                `${API}/api/admin/users`
             )
 
             setUsers(res.data)
@@ -46,9 +44,7 @@ function Admin() {
         try {
 
             const res = await axios.get(
-
-                "http://localhost:5000/api/admin/messages"
-
+                `${API}/api/admin/messages`
             )
 
             setMessages(res.data)
@@ -91,33 +87,23 @@ function Admin() {
                             <tr>
 
                                 <th className="p-4">
-
                                     Name
-
                                 </th>
 
                                 <th className="p-4">
-
                                     Email
-
                                 </th>
 
                                 <th className="p-4">
-
                                     Age
-
                                 </th>
 
                                 <th className="p-4">
-
                                     Gender
-
                                 </th>
 
                                 <th className="p-4">
-
                                     Goal
-
                                 </th>
 
                             </tr>
@@ -136,33 +122,23 @@ function Admin() {
                                     >
 
                                         <td className="p-4">
-
                                             {user.name}
-
                                         </td>
 
                                         <td className="p-4">
-
                                             {user.email}
-
                                         </td>
 
                                         <td className="p-4">
-
                                             {user.age}
-
                                         </td>
 
                                         <td className="p-4">
-
                                             {user.gender}
-
                                         </td>
 
                                         <td className="p-4">
-
                                             {user.goal}
-
                                         </td>
 
                                     </tr>
