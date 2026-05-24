@@ -19,9 +19,9 @@ function Trainers() {
             name: "Sher Khan Gymwala",
             role: "Bodybuilding Coach",
 
-            facebook: "https://facebook.com/alexjohnson",
-            instagram: "https://instagram.com/alexjohnson",
-            twitter: "https://twitter.com/alexjohnson"
+            facebook: "",
+            instagram: "",
+            twitter: ""
         },
 
         {
@@ -30,9 +30,9 @@ function Trainers() {
             name: "Tiger Tiwari",
             role: "Fitness Trainer",
 
-            facebook: "https://facebook.com/sarahwilliams",
-            instagram: "https://instagram.com/sarahwilliams",
-            twitter: "https://twitter.com/sarahwilliams"
+            facebook: "",
+            instagram: "",
+            twitter: ""
         },
 
         {
@@ -41,9 +41,9 @@ function Trainers() {
             name: "Dogesh Gym Boy",
             role: "CrossFit Expert",
 
-            facebook: "https://facebook.com/michaellee",
-            instagram: "https://instagram.com/michaellee",
-            twitter: "https://twitter.com/michaellee"
+            facebook: "",
+            instagram: "",
+            twitter: ""
         },
 
         {
@@ -52,9 +52,9 @@ function Trainers() {
             name: "Billa Gymson (Biral Bhai)",
             role: "Yoga Instructor",
 
-            facebook: "https://facebook.com/emmabrown",
-            instagram: "https://instagram.com/emmabrown",
-            twitter: "https://twitter.com/emmabrown"
+            facebook: "",
+            instagram: "",
+            twitter: ""
         }
 
     ]
