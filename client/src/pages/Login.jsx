@@ -2,7 +2,13 @@ import { useState } from "react"
 
 import axios from "axios"
 
-import { useNavigate, Link } from "react-router-dom"
+import {
+
+    useNavigate,
+
+    Link
+
+} from "react-router-dom"
 
 function Login() {
 
@@ -36,7 +42,7 @@ function Login() {
 
             const response = await axios.post(
 
-                "http://localhost:5000/api/auth/login",
+                "https://fitzone-pro.onrender.com/api/auth/login",
 
                 formData
 
@@ -54,6 +60,8 @@ function Login() {
             alert("Login Successful 😄🔥")
 
             navigate("/dashboard")
+
+            window.location.reload()
 
         }
 
