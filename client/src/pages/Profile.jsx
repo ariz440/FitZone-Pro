@@ -1,18 +1,18 @@
 import { useState } from "react"
-
 import axios from "axios"
 
 function Profile() {
 
-    const storedUser = JSON.parse(
+    // SAFE USER LOAD
+    const storedUser = localStorage.getItem("user")
 
-        localStorage.getItem("user")
-
-    )
+    const parsedUser = storedUser
+        ? JSON.parse(storedUser)
+        : {}
 
     const [user, setUser] = useState({
 
-        ...storedUser
+        ...parsedUser
 
     })
 
@@ -59,25 +59,29 @@ function Profile() {
 
         try {
 
-            // SAVE LOCAL
-            localStorage.setItem(
-
-                "user",
-
-                JSON.stringify(user)
-
-            )
-
             // SAVE DATABASE
-            await axios.put(
+            const response = await axios.put(
 
-                "http://localhost:5000/api/user/update-profile",
+                "https://fitzone-pro.onrender.com/api/user/update-profile",
 
                 user
 
             )
 
+            // SAVE UPDATED USER
+            localStorage.setItem(
+
+                "user",
+
+                JSON.stringify(response.data)
+
+            )
+
+            setUser(response.data)
+
             alert("Profile Updated Successfully 😄🔥")
+
+            window.location.reload()
 
         }
 
@@ -103,7 +107,6 @@ function Profile() {
 
                 </h1>
 
-                {/* IMAGE */}
                 {/* IMAGE */}
                 <div className="flex flex-col items-center mb-8">
 
@@ -206,21 +209,15 @@ function Profile() {
                     >
 
                         <option value="">
-
                             Select Gender
-
                         </option>
 
                         <option value="Male">
-
                             Male
-
                         </option>
 
                         <option value="Female">
-
                             Female
-
                         </option>
 
                     </select>
