@@ -37,29 +37,29 @@ app.use("/api/contact", contactRoutes)
 app.use("/api/user", userRoutes)
 
 // TEST ROUTE
+app.use("/api/users", userRoutes)
+
 app.get("/", (req, res) => {
-
-  res.send("API Running 😄🔥")
-
+  res.send("FitZone Pro Backend Running 🚀")
 })
 
 // DATABASE CONNECT
 mongoose.connect(process.env.MONGO_URI)
 
-.then(() => {
+  .then(() => {
 
-  console.log("MongoDB Connected 😄🔥")
+    console.log("MongoDB Connected 😄🔥")
 
-  app.listen(5000, () => {
+    app.listen(5000, () => {
 
-    console.log("Server Running On Port 5000 🚀")
+      console.log("Server Running On Port 5000 🚀")
+
+    })
 
   })
 
-})
+  .catch((error) => {
 
-.catch((error) => {
+    console.log(error)
 
-  console.log(error)
-
-})
+  })
