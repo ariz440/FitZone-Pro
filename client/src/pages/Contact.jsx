@@ -23,7 +23,7 @@ function Contact() {
       // Save To MongoDB
       await axios.post(
 
-        "https://fitzone-pro.onrender.com",
+        "https://fitzone-pro.onrender.com/api/contact",
 
         {
 
