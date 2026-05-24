@@ -11,6 +11,7 @@ import authRoutes from "./routes/authRoutes.js"
 import contactRoutes from "./routes/contactRoutes.js"
 
 import userRoutes from "./routes/userRoutes.js"
+import adminRoutes from "./routes/adminRoutes.js"
 
 dotenv.config()
 
@@ -35,6 +36,7 @@ app.use("/api/auth", authRoutes)
 app.use("/api/contact", contactRoutes)
 
 app.use("/api/user", userRoutes)
+app.use("/api/admin", adminRoutes)
 
 // TEST ROUTE
 app.use("/api/users", userRoutes)

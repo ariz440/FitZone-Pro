@@ -1,30 +1,55 @@
 import express from "express"
 
-import {
+import User from "../models/User.js"
 
-    getAllUsers,
-    getAllMessages
-
-} from "../controllers/adminController.js"
+import Contact from "../models/Contact.js"
 
 const router = express.Router()
 
-// USERS
-router.get(
+// GET ALL USERS
+router.get("/users", async (req, res) => {
 
-    "/users",
+    try {
 
-    getAllUsers
+        const users = await User.find()
 
-)
+        res.json(users)
 
-// CONTACT MESSAGES
-router.get(
+    }
 
-    "/messages",
+    catch (error) {
 
-    getAllMessages
+        res.status(500).json({
 
-)
+            message: error.message
+
+        })
+
+    }
+
+})
+
+// GET ALL CONTACT MESSAGES
+router.get("/messages", async (req, res) => {
+
+    try {
+
+        const messages = await Contact.find()
+
+        res.json(messages)
+
+    }
+
+    catch (error) {
+
+        res.status(500).json({
+
+            message: error.message
+
+        })
+
+    }
+
+})
 
 export default router
