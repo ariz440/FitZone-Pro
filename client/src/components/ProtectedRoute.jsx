@@ -2,16 +2,16 @@ import { Navigate } from "react-router-dom"
 
 function ProtectedRoute({ children }) {
 
-    const token = localStorage.getItem("token")
+    const user = localStorage.getItem("user")
 
-    // If not logged in
-    if (!token) {
+    // USER NA THAKLE LOGIN
+    if (!user || user === "undefined") {
 
         return <Navigate to="/login" />
 
     }
 
-    // If logged in
+    // USER THAKLE DASHBOARD SHOW
     return children
 
 }
