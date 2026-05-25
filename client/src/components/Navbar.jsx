@@ -187,62 +187,94 @@ function Navbar() {
 
                     <div className="md:hidden bg-[#111111] px-6 py-6 flex flex-col gap-5 text-lg border-t border-gray-700">
 
-                        <a
-                            href="/"
-                            onClick={() => setMenuOpen(false)}
+                        <button
+                            onClick={() => {
+                                setMenuOpen(false)
+                                navigate("/")
+                            }}
+                            className="text-left"
                         >
 
                             Home
 
-                        </a>
+                        </button>
 
-                        <a
-                            href="#pricing"
-                            onClick={() => setMenuOpen(false)}
+                        <button
+                            onClick={() => {
+                                setMenuOpen(false)
+
+                                setTimeout(() => {
+
+                                    const section = document.getElementById("pricing")
+
+                                    if (section) {
+
+                                        section.scrollIntoView({
+                                            behavior: "smooth"
+                                        })
+
+                                    }
+
+                                }, 100)
+
+                            }}
+                            className="text-left"
                         >
 
                             Pricing
 
-                        </a>
+                        </button>
 
-                        <Link
-                            to="/dashboard"
-                            onClick={() => setMenuOpen(false)}
+                        <button
+                            onClick={() => {
+                                setMenuOpen(false)
+                                navigate("/dashboard")
+                            }}
+                            className="text-left"
                         >
 
                             Dashboard
 
-                        </Link>
+                        </button>
 
-                        <Link
-                            to="/contact"
-                            onClick={() => setMenuOpen(false)}
+                        <button
+                            onClick={() => {
+                                setMenuOpen(false)
+                                navigate("/contact")
+                            }}
+                            className="text-left"
                         >
 
                             Contact
 
-                        </Link>
+                        </button>
 
-                        <Link
-                            to="/profile"
-                            onClick={() => setMenuOpen(false)}
+                        <button
+                            onClick={() => {
+                                setMenuOpen(false)
+                                navigate("/profile")
+                            }}
+                            className="text-left"
                         >
 
                             Profile
 
-                        </Link>
+                        </button>
 
                         {
                             user?.isAdmin && (
 
-                                <Link
-                                    to="/admin"
-                                    onClick={() => setMenuOpen(false)}
+                                <button
+                                    onClick={() => {
+                                        setMenuOpen(false)
+                                        navigate("/admin")
+                                    }}
+                                    className="text-left"
                                 >
 
                                     Admin
 
-                                </Link>
+                                </button>
 
                             )
 
