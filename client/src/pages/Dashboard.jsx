@@ -1,34 +1,43 @@
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 function Dashboard() {
 
-  // Safe User Parse
-  const userData = localStorage.getItem("user")
+  const navigate = useNavigate()
 
-  const user = userData
+  // USER STATE
+  const [user, setUser] = useState(null)
 
-    ? JSON.parse(userData)
+  // CHECK LOGIN
+  useEffect(() => {
 
-    : null
+    const userData = localStorage.getItem("user")
+
+    if (!userData || userData === "undefined") {
+
+      navigate("/login")
+
+    }
+
+    else {
+
+      setUser(JSON.parse(userData))
+
+    }
+
+  }, [navigate])
 
   // Inputs
   const [weight, setWeight] = useState(70)
-
   const [height, setHeight] = useState(176)
-
   const [duration, setDuration] = useState(45)
-
   const [workoutType, setWorkoutType] = useState("Cardio")
-
   const [workoutName, setWorkoutName] = useState("")
 
   // Results
   const [bmi, setBmi] = useState(0)
-
   const [bmiStatus, setBmiStatus] = useState("")
-
   const [calories, setCalories] = useState(0)
-
   const [progress, setProgress] = useState(0)
 
   // Workout History
@@ -112,15 +121,13 @@ function Dashboard() {
   },
 
     [
-
       weight,
       height,
       duration,
       workoutType
-
     ])
 
-  // Load Workouts
+  // LOAD WORKOUTS
   useEffect(() => {
 
     const savedWorkouts = JSON.parse(
@@ -137,7 +144,7 @@ function Dashboard() {
 
   }, [])
 
-  // Add Workout
+  // ADD WORKOUT
   const addWorkout = () => {
 
     if (
@@ -195,7 +202,7 @@ function Dashboard() {
 
   }
 
-  // Delete Workout
+  // DELETE WORKOUT
   const deleteWorkout = (id) => {
 
     const filtered = workouts.filter(
@@ -334,11 +341,8 @@ function Dashboard() {
             >
 
               <option>Cardio</option>
-
               <option>Strength</option>
-
               <option>HIIT</option>
-
               <option>Yoga</option>
 
             </select>
@@ -509,7 +513,6 @@ function Dashboard() {
                           <p className="text-gray-400 mb-2">
 
                             Type:
-
                             <span className="text-white">
 
                               {" "}
@@ -523,7 +526,6 @@ function Dashboard() {
                           <p className="text-gray-400 mb-2">
 
                             Duration:
-
                             <span className="text-white">
 
                               {" "}
@@ -537,7 +539,6 @@ function Dashboard() {
                           <p className="text-gray-400 mb-2">
 
                             Calories:
-
                             <span className="text-orange-500">
 
                               {" "}
