@@ -1,11 +1,8 @@
 import { useState } from "react"
 
 import {
-
     Link,
-
     useNavigate
-
 } from "react-router-dom"
 
 function Navbar() {
@@ -22,11 +19,8 @@ function Navbar() {
         const storedUser = localStorage.getItem("user")
 
         if (
-
             storedUser &&
-
             storedUser !== "undefined"
-
         ) {
 
             user = JSON.parse(storedUser)
@@ -52,7 +46,7 @@ function Navbar() {
 
     return (
 
-        <nav className="bg-black text-white border-b border-gray-800">
+        <nav className="bg-black text-white border-b border-gray-800 sticky top-0 z-50">
 
             <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
 
@@ -62,28 +56,65 @@ function Navbar() {
                     className="text-3xl font-bold text-orange-500"
                 >
 
-                    FitZon Pro
+                    FitZone Pro
 
                 </Link>
 
                 {/* DESKTOP MENU */}
                 <div className="hidden md:flex items-center gap-6 text-lg">
 
-                    <Link to="/">Home</Link>
+                    <a
+                        href="/"
+                        className="hover:text-orange-500 duration-300"
+                    >
 
-                    <Link to="/dashboard">Dashboard</Link>
+                        Home
 
-                    <Link to="/pricing">Pricing</Link>
+                    </a>
 
-                    <Link to="/contact">Contact</Link>
+                    <a
+                        href="#pricing"
+                        className="hover:text-orange-500 duration-300"
+                    >
 
-                    <Link to="/profile">Profile</Link>
+                        Pricing
+
+                    </a>
+
+                    <Link
+                        to="/dashboard"
+                        className="hover:text-orange-500 duration-300"
+                    >
+
+                        Dashboard
+
+                    </Link>
+
+                    <Link
+                        to="/contact"
+                        className="hover:text-orange-500 duration-300"
+                    >
+
+                        Contact
+
+                    </Link>
+
+                    <Link
+                        to="/profile"
+                        className="hover:text-orange-500 duration-300"
+                    >
+
+                        Profile
+
+                    </Link>
 
                     {
-
                         user?.isAdmin && (
 
-                            <Link to="/admin">
+                            <Link
+                                to="/admin"
+                                className="hover:text-orange-500 duration-300"
+                            >
 
                                 Admin
 
@@ -94,16 +125,11 @@ function Navbar() {
                     }
 
                     {
-
                         user && (
 
                             <p className="text-orange-500 font-bold">
 
-                                Hello,
-
-                                {" "}
-
-                                {user.name} 👋
+                                Hello {user.name} 👋
 
                             </p>
 
@@ -112,12 +138,11 @@ function Navbar() {
                     }
 
                     {
-
                         user ? (
 
                             <button
                                 onClick={handleLogout}
-                                className="bg-orange-500 hover:bg-orange-600 px-5 py-2 rounded-xl font-bold"
+                                className="bg-orange-500 hover:bg-orange-600 px-5 py-2 rounded-xl font-bold duration-300"
                             >
 
                                 Logout
@@ -128,7 +153,7 @@ function Navbar() {
 
                             <Link
                                 to="/login"
-                                className="bg-orange-500 hover:bg-orange-600 px-5 py-2 rounded-xl font-bold"
+                                className="bg-orange-500 hover:bg-orange-600 px-5 py-2 rounded-xl font-bold duration-300"
                             >
 
                                 Login
@@ -148,9 +173,7 @@ function Navbar() {
                 >
 
                     {
-
                         menuOpen ? "✖" : "☰"
-
                     }
 
                 </button>
@@ -164,21 +187,58 @@ function Navbar() {
 
                     <div className="md:hidden bg-[#111111] px-6 py-6 flex flex-col gap-5 text-lg border-t border-gray-700">
 
-                        <Link to="/">Home</Link>
+                        <a
+                            href="/"
+                            onClick={() => setMenuOpen(false)}
+                        >
 
-                        <Link to="/dashboard">Dashboard</Link>
+                            Home
 
-                        <Link to="/pricing">Pricing</Link>
+                        </a>
 
-                        <Link to="/contact">Contact</Link>
+                        <a
+                            href="#pricing"
+                            onClick={() => setMenuOpen(false)}
+                        >
 
-                        <Link to="/profile">Profile</Link>
+                            Pricing
+
+                        </a>
+
+                        <Link
+                            to="/dashboard"
+                            onClick={() => setMenuOpen(false)}
+                        >
+
+                            Dashboard
+
+                        </Link>
+
+                        <Link
+                            to="/contact"
+                            onClick={() => setMenuOpen(false)}
+                        >
+
+                            Contact
+
+                        </Link>
+
+                        <Link
+                            to="/profile"
+                            onClick={() => setMenuOpen(false)}
+                        >
+
+                            Profile
+
+                        </Link>
 
                         {
-
                             user?.isAdmin && (
 
-                                <Link to="/admin">
+                                <Link
+                                    to="/admin"
+                                    onClick={() => setMenuOpen(false)}
+                                >
 
                                     Admin
 
@@ -189,16 +249,11 @@ function Navbar() {
                         }
 
                         {
-
                             user && (
 
                                 <p className="text-orange-500 font-bold">
 
-                                    Hello,
-
-                                    {" "}
-
-                                    {user.name} 👋
+                                    Hello {user.name} 👋
 
                                 </p>
 
@@ -207,12 +262,11 @@ function Navbar() {
                         }
 
                         {
-
                             user ? (
 
                                 <button
                                     onClick={handleLogout}
-                                    className="bg-orange-500 hover:bg-orange-600 px-5 py-3 rounded-xl font-bold"
+                                    className="bg-orange-500 hover:bg-orange-600 px-5 py-3 rounded-xl font-bold duration-300"
                                 >
 
                                     Logout
@@ -223,7 +277,7 @@ function Navbar() {
 
                                 <Link
                                     to="/login"
-                                    className="bg-orange-500 hover:bg-orange-600 px-5 py-3 rounded-xl font-bold text-center"
+                                    className="bg-orange-500 hover:bg-orange-600 px-5 py-3 rounded-xl font-bold text-center duration-300"
                                 >
 
                                     Login

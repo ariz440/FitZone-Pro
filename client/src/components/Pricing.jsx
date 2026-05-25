@@ -43,22 +43,25 @@ function Pricing() {
 
   return (
 
-    <section className="py-24 px-5 bg-[#111111]">
+    <section
+      id="pricing"
+      className="py-24 px-5 bg-[#111111]"
+    >
 
       <div className="max-w-7xl mx-auto">
 
         {/* Heading */}
         <div className="text-center mb-16">
 
-          <h2 className="text-4xl md:text-5xl font-bold">
+          <h2 className="text-4xl md:text-5xl font-bold text-white">
 
-            MEMBERSHIP <span className="text-orange-500">PLANS</span>
+            PRICING <span className="text-orange-500">PLANS</span>
 
           </h2>
 
           <p className="text-gray-400 mt-5 text-lg max-w-2xl mx-auto">
 
-            Choose the perfect membership plan
+            Choose the perfect pricing plan
             according to your fitness goals.
 
           </p>
@@ -73,10 +76,10 @@ function Pricing() {
 
               <div
                 key={index}
-                className="bg-[#1a1a1a] border border-gray-800 rounded-3xl p-10 hover:border-orange-500 duration-300 hover:-translate-y-2"
+                className="bg-[#1a1a1a] border border-gray-800 rounded-3xl p-10 hover:border-orange-500 duration-300 hover:-translate-y-2 shadow-xl"
               >
 
-                <h3 className="text-3xl font-bold mb-5">
+                <h3 className="text-3xl font-bold mb-5 text-white">
 
                   {plan.name}
 
@@ -117,7 +120,7 @@ function Pricing() {
                 </div>
 
                 {/* Button */}
-                <button className="w-full bg-orange-500 hover:bg-orange-600 py-4 rounded-full text-lg font-semibold mt-10 duration-300">
+                <button className="w-full bg-orange-500 hover:bg-orange-600 py-4 rounded-full text-lg font-semibold mt-10 duration-300 text-white">
 
                   Choose Plan
 
