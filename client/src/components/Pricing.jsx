@@ -2,7 +2,13 @@ import {
   FaCheck
 } from "react-icons/fa"
 
+import {
+  useState
+} from "react"
+
 function Pricing() {
+
+  const [showQR, setShowQR] = useState(false)
 
   const plans = [
 
@@ -45,7 +51,7 @@ function Pricing() {
 
     <section
       id="pricing"
-      className="py-24 px-5 bg-[#111111]"
+      className="py-24 px-5 bg-[#111111] relative"
     >
 
       <div className="max-w-7xl mx-auto">
@@ -120,7 +126,10 @@ function Pricing() {
                 </div>
 
                 {/* Button */}
-                <button className="w-full bg-orange-500 hover:bg-orange-600 py-4 rounded-full text-lg font-semibold mt-10 duration-300 text-white">
+                <button
+                  onClick={() => setShowQR(true)}
+                  className="w-full bg-orange-500 hover:bg-orange-600 py-4 rounded-full text-lg font-semibold mt-10 duration-300 text-white"
+                >
 
                   Choose Plan
 
@@ -134,6 +143,51 @@ function Pricing() {
         </div>
 
       </div>
+
+      {/* QR POPUP */}
+      {
+        showQR && (
+
+          <div className="fixed inset-0 bg-black/80 flex justify-center items-center z-50 px-4">
+
+            <div className="bg-[#1a1a1a] p-8 rounded-3xl text-center max-w-md w-full border border-orange-500 relative">
+
+              {/* Close Button */}
+              <button
+                onClick={() => setShowQR(false)}
+                className="absolute top-4 right-5 text-white text-3xl hover:text-orange-500"
+              >
+
+                ×
+
+              </button>
+
+              <h2 className="text-3xl font-bold text-orange-500 mb-6">
+
+                Scan & Pay
+
+              </h2>
+
+              <img
+                src="/payment.png"
+                alt="QR Code"
+                className="w-72 mx-auto rounded-2xl border-4 border-orange-500"
+              />
+
+              <p className="text-gray-400 mt-6 text-lg">
+
+                Scan this QR code using
+                PhonePe, Google Pay, Paytm or any UPI app.
+
+              </p>
+
+            </div>
+
+          </div>
+
+        )
+
+      }
 
     </section>
 
