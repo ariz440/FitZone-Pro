@@ -144,7 +144,7 @@ function Contact() {
 
               <p className="font-semibold">
 
-                +91 7001234567
+                +91 7602021494
 
               </p>
 
